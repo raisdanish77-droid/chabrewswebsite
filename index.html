@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHA & BREW | Welcome</title>
+
+    <!-- Google Fonts High-Class (Cinzel & Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-cream: #F6F4EB;
+            --matcha-sage: #8A9A7B;
+            --matcha-dark: #3A4B33;
+            --coffee-dark: #2C1A0E;
+            --card-white: #FFFFFF;
+            --text-body: #4A4A4A;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-body);
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--bg-cream);
+            padding-bottom: 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* ANIMATION KEYFRAMES */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 4px 15px rgba(44, 26, 14, 0.2); }
+            50% { box-shadow: 0 6px 22px rgba(58, 75, 51, 0.4); }
+            100% { box-shadow: 0 4px 15px rgba(44, 26, 14, 0.2); }
+        }
+
+        /* 1. HEADER SECTION */
+        header {
+            text-align: center;
+            padding: 45px 25px 20px 25px;
+            animation: fadeInDown 1.2s ease-out forwards;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .brand-title .matcha-text { color: var(--matcha-dark); }
+        .brand-title .brew-text { color: var(--coffee-dark); }
+
+        .tagline {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            color: var(--coffee-dark);
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
+            opacity: 0.85;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-illustration:hover {
+            transform: scale(1.05);
+        }
+
+        /* 2. STORY BANNER WITH SCROLL ANIMATION */
+        .story-section {
+            background-color: var(--matcha-sage);
+            color: #FFFFFF;
+            padding: 35px 25px;
+            margin-top: 25px;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .story-section.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--bg-cream);
+            margin-bottom: 12px;
+        }
+
+        .story-quote {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            color: #FFFFFF;
+        }
+
+        .story-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--bg-cream);
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* 3. VISUAL BANNER */
+        .visual-banner {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            object-position: center 60%;
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out 0.2s;
+        }
+
+        .visual-banner.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 4. ACTIONS & CONTACT */
+        .action-container {
+            padding: 30px 25px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out 0.4s;
+        }
+
+        .action-container.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-main-menu {
+            display: block;
+            background-color: var(--matcha-dark); 
+            color: #FFFFFF;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: pulseGlow 3s infinite ease-in-out;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .btn-main-menu:active {
+            transform: scale(0.96);
+            background-color: var(--coffee-dark); 
+        }
+
+        /* INFO SECTION */
+        .info-section {
+            background-color: var(--card-white);
+            border-radius: 12px;
+            padding: 22px;
+            border: 1px solid rgba(0,0,0,0.03);
+            margin-bottom: 10px;
+        }
+
+        .info-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--coffee-dark);
+            text-transform: uppercase;
+        }
+
+        .info-section p {
+            font-size: 0.78rem;
+            color: var(--text-body);
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--matcha-dark);
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <div>
+            <!-- SECTION 1: HEADER & TITLE -->
+            <header>
+                <div class="brand-title">
+                    <span class="matcha-text">CHA&</span><span class="brew-text">BREW</span>
+                </div>
+                <p class="tagline">“A cozy space where coffee and matcha lovers come together”</p>
+                
+                <svg class="hero-illustration" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 90V40H70V90M40 40L55 20L70 40" stroke="#3A4B33" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M90 90V50C90 45 95 40 100 40C105 40 110 45 110 50V90" stroke="#3A4B33" stroke-width="1.8"/>
+                    <path d="M130 90V45H160V90M160 60H170C175 60 175 75 170 75H160" stroke="#3A4B33" stroke-width="1.8"/>
+                    <line x1="20" y1="90" x2="180" y2="90" stroke="#3A4B33" stroke-width="1.8"/>
+                </svg>
+            </header>
+
+            <!-- SECTION 2: STORY BANNER -->
+            <div class="story-section scroll-reveal">
+                <div class="story-subtitle">Our Story</div>
+                <div class="story-quote">
+                    “Born from a love for coffee and matcha, we created a cozy space where every sip brings people together”
+                </div>
+                <div class="story-desc">
+                    We believe good drinks have a way of bringing people together. From rich, handcrafted coffee to smooth and refreshing matcha, every cup is made with quality ingredients and a passion for making every sip worth remembering.
+                </div>
+            </div>
+
+            <!-- SECTION 3: VISUAL BANNER -->
+            <img class="visual-banner scroll-reveal" 
+                 src="cha&Brews.jpg" 
+                 alt="Coffee and Matcha CHA&BREW">
+
+            <!-- SECTION 4: ACTIONS & INFORMATION -->
+            <div class="action-container scroll-reveal">
+                
+                <a href="menu.html" class="btn-main-menu">explore our menu</a>
+
+                <div class="info-section">
+                    <h3>Operating Hours</h3>
+                    <p>Monday – Sunday | 5:00 PM – 11:00 PM</p>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 CHA&BREW. ALL RIGHTS RESERVED.
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT FOR SCROLL ANIMATION -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            scrollElements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>

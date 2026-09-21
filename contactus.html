@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CHA&BREW | Contact Us</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons for IG & TikTok -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F6F4EB;
+            --white: #FFFFFF;
+            --matcha: #3A4B33;
+            --matcha-light: #8A9A7B;
+            --coffee: #2C1A0E;
+            --brown-light: #6B5140;
+            --gold: #C5A059;
+            --text: #4A4A4A;
+        }
+
+        body {
+            background-color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            margin: auto;
+            padding: 25px 20px 40px;
+        }
+
+
+        /* =========================
+           TOP NAVIGATION
+        ========================= */
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--coffee);
+            font-size: 13px;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-4px);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo .cha {
+            color: var(--matcha);
+        }
+
+        .logo .brew {
+            color: var(--coffee);
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--coffee);
+            font-size: 28px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .title .line {
+            width: 45px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 12px auto;
+        }
+
+        .title p {
+            color: var(--matcha);
+            font-size: 12px;
+            line-height: 1.7;
+            padding: 0 15px;
+        }
+
+
+        /* =========================
+           CONTACT INFORMATION CARD
+        ========================= */
+
+        .info-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 22px;
+            margin-bottom: 18px;
+
+            box-shadow: 0 6px 20px rgba(44, 26, 14, 0.06);
+
+            animation: slideUp 0.7s ease;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--coffee);
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 13px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid rgba(138, 154, 123, 0.18);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .icon {
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+
+            border-radius: 50%;
+
+            background-color: rgba(138, 154, 123, 0.16);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 16px;
+            color: var(--matcha);
+        }
+
+        .contact-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            color: var(--coffee);
+            margin-bottom: 5px;
+        }
+
+        .contact-content p {
+            font-size: 11px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .contact-content a {
+            color: var(--matcha);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* SOCIAL MEDIA LINKS */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            color: var(--matcha);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .social-link i {
+            font-size: 14px;
+            color: var(--coffee);
+        }
+
+        .social-link:hover {
+            color: var(--coffee);
+            transform: translateX(3px);
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 22px;
+
+            box-shadow: 0 6px 20px rgba(44, 26, 14, 0.06);
+
+            animation: slideUp 0.9s ease;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+
+            color: var(--coffee);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.7px;
+
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+
+            width: 100%;
+
+            border: 1px solid rgba(138, 154, 123, 0.35);
+
+            background-color: #FCFCF9;
+
+            border-radius: 8px;
+
+            padding: 12px;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 11px;
+
+            color: var(--text);
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        .form-group input {
+            height: 42px;
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+
+            border-color: var(--matcha);
+
+            box-shadow:
+                0 0 0 3px rgba(58, 75, 51, 0.08);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #A4A4A4;
+        }
+
+
+        /* =========================
+           SEND BUTTON
+        ========================= */
+
+        .send-btn {
+
+            width: 100%;
+
+            border: none;
+
+            background-color: var(--matcha);
+
+            color: white;
+
+            padding: 14px;
+
+            border-radius: 8px;
+
+            font-family: 'Cinzel', serif;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .send-btn:hover {
+            background-color: var(--coffee);
+
+            transform: translateY(-2px);
+        }
+
+        .send-btn:active {
+            transform: scale(0.98);
+        }
+
+
+        /* =========================
+           MENU BUTTON
+        ========================= */
+
+        .menu-btn {
+
+            display: block;
+
+            width: 100%;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            color: var(--coffee);
+
+            border: 1.5px solid var(--coffee);
+
+            padding: 13px;
+
+            border-radius: 8px;
+
+            margin-top: 18px;
+
+            font-family: 'Cinzel', serif;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            transition: 0.3s;
+        }
+
+        .menu-btn:hover {
+
+            background-color: var(--coffee);
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            font-size: 9px;
+
+            color: var(--matcha);
+
+            letter-spacing: 1px;
+
+            opacity: 0.7;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes slideUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <div class="top-nav">
+
+        <a href="menu.html" class="back-btn">
+            ← Back
+        </a>
+
+        <div class="logo">
+            <span class="cha">CHA&</span><span class="brew">BREW</span>
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         PAGE TITLE
+    ========================= -->
+
+    <div class="title">
+
+        <h1>Contact Us</h1>
+
+        <div class="line"></div>
+
+        <p>
+            We'd love to hear from you.
+            Feel free to reach out or visit us.
+        </p>
+
+    </div>
+
+
+
+    <!-- =========================
+         CONTACT INFORMATION
+    ========================= -->
+
+    <div class="info-card">
+
+        <div class="section-title">
+            Get In Touch
+        </div>
+
+
+        <!-- LOCATION -->
+
+        <div class="contact-item">
+
+            <div class="icon">
+                📍
+            </div>
+
+            <div class="contact-content">
+
+                <h3>LOCATION</h3>
+
+                <p>
+                    Apartment Selasih PPA1M, Block D,<br>
+                    Tingkat 8 Unit 7, Presint 17,<br>
+                    Putrajaya
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OPERATING HOURS -->
+
+        <div class="contact-item">
+
+            <div class="icon">
+                🕐
+            </div>
+
+            <div class="contact-content">
+
+                <h3>OPERATING HOURS</h3>
+
+                <p>
+                    Monday – Sunday<br>
+                    5:00 PM – 11:00 PM
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DRINKS -->
+
+        <div class="contact-item">
+
+            <div class="icon">
+                ☕
+            </div>
+
+            <div class="contact-content">
+
+                <h3>WHAT WE SERVE</h3>
+
+                <p>
+                    Handcrafted coffee & premium
+                    matcha drinks.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOCIAL MEDIA -->
+
+        <div class="contact-item">
+
+            <div class="icon">
+                📱
+            </div>
+
+            <div class="contact-content">
+
+                <h3>FOLLOW US</h3>
+
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" class="social-link">
+                        <i class="fa-brands fa-instagram"></i> cha@brew17
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" class="social-link">
+                        <i class="fa-brands fa-tiktok"></i> letschabrew
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         MESSAGE FORM
+    ========================= -->
+
+    <div class="form-card">
+
+        <div class="section-title">
+            Send Us A Message
+        </div>
+
+
+        <form id="contactForm">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    YOUR NAME
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    YOUR EMAIL
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div class="form-group">
+
+                <label for="message">
+                    MESSAGE
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- SEND -->
+
+            <button
+                type="submit"
+                class="send-btn"
+            >
+                SEND MESSAGE
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- =========================
+         BACK TO MENU
+    ========================= -->
+
+    <a href="menu.html" class="menu-btn">
+        VIEW OUR MENU
+    </a>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 CHA&BREW. ALL RIGHTS RESERVED.
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    const contactForm =
+        document.getElementById("contactForm");
+
+
+    contactForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("name").value;
+
+
+            alert(
+                "Thank you, " +
+                name +
+                "!\n\n" +
+                "Your message has been received.\n" +
+                "We will get back to you soon."
+            );
+
+
+            contactForm.reset();
+
+        }
+    );
+
+</script>
+
+
+</body>
+</html>

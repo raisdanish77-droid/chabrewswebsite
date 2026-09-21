@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHA & BREW | Our Menu</title>
+
+    <!-- Google Fonts (Cinzel & Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-cream: #F6F4EB;
+            --matcha-sage: #8A9A7B;
+            --matcha-dark: #3A4B33;
+            --coffee-dark: #2C1A0E;
+            --accent-gold: #C5A059;
+            --card-white: #FFFFFF;
+            --text-body: #4A4A4A;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-body);
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--bg-cream);
+            padding: 30px 20px 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* ANIMATION KEYFRAMES */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 1. TOP NAVIGATION & HEADER */
+        .nav-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .btn-back {
+            color: var(--coffee-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-back:active {
+            transform: translateX(-3px);
+        }
+
+        .brand-mini {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .brand-mini .m-text { color: var(--matcha-dark); }
+        .brand-mini .b-text { color: var(--coffee-dark); }
+
+        /* BUTTON CONTACT US */
+        .btn-contact {
+            color: var(--matcha-dark);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1.5px solid var(--matcha-dark);
+            padding: 5px 12px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--matcha-dark);
+            color: #FFFFFF;
+        }
+
+        .menu-title-section {
+            text-align: center;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .menu-title-section h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--coffee-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .menu-title-section p {
+            font-size: 0.78rem;
+            color: var(--matcha-dark);
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        /* 2. CATEGORY TABS (FILTER BUTTONS) */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        .tab-btn {
+            background-color: transparent;
+            border: 1.5px solid var(--matcha-dark);
+            color: var(--matcha-dark);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--matcha-dark);
+            color: #FFFFFF;
+        }
+
+        /* 3. MENU SECTION HEADINGS */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0 15px 0;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--coffee-dark);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .section-header .line {
+            height: 1px;
+            background-color: var(--matcha-sage);
+            width: 100%;
+            opacity: 0.5;
+        }
+
+        /* 4. MENU ITEMS LIST & CARDS */
+        .menu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .menu-card {
+            background-color: var(--card-white);
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid rgba(138, 154, 123, 0.15);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .menu-card.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(58, 75, 51, 0.1);
+        }
+
+        /* FRAME GAMBAR MENU */
+        .item-img-frame {
+            width: 75px;
+            height: 75px;
+            min-width: 75px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--bg-cream);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .item-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .item-img-frame img {
+            transform: scale(1.08);
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--coffee-dark);
+            margin-bottom: 3px;
+        }
+
+        .item-desc {
+            font-size: 0.68rem;
+            color: var(--text-body);
+            line-height: 1.35;
+            font-weight: 300;
+        }
+
+        /* CRAFT / INGREDIENTS SECTION */
+        .item-craft {
+            font-size: 0.62rem;
+            color: var(--matcha-dark);
+            margin-top: 5px;
+            line-height: 1.3;
+            letter-spacing: 0.2px;
+        }
+
+        .item-craft b {
+            font-weight: 600;
+            color: var(--coffee-dark);
+        }
+
+        /* STRENGTH LEVEL BADGE */
+        .item-strength {
+            font-size: 0.58rem;
+            font-weight: 600;
+            color: var(--coffee-dark);
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .strength-dots {
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        /* PILIHAN HARGA MULTI-OPTION (HOT / COLD) */
+        .price-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+            min-width: 70px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .temp-badge {
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 3px;
+            letter-spacing: 0.5px;
+        }
+
+        .temp-hot {
+            background-color: rgba(197, 160, 89, 0.15);
+            color: #B3541E;
+        }
+
+        .temp-cold {
+            background-color: rgba(58, 75, 51, 0.12);
+            color: var(--matcha-dark);
+        }
+
+        .price-val {
+            font-family: 'Cinzel', serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--coffee-dark);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--matcha-dark);
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <div>
+            <!-- NAV HEADER -->
+            <div class="nav-header">
+                <a href="index.html" class="btn-back">← Back</a>
+                <div class="brand-mini">
+                    <span class="m-text">CHA&</span><span class="b-text">BREW</span>
+                </div>
+                <a href="contactus.html" class="btn-contact">Contact Us</a>
+            </div>
+
+            <!-- TITLE -->
+            <div class="menu-title-section">
+                <h1>Menu</h1>
+                <p>Specially curated for true coffee and matcha lovers</p>
+            </div>
+
+            <!-- TABS FILTER -->
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="filterMenu('all')">ALL</button>
+                <button class="tab-btn" onclick="filterMenu('coffee')">COFFEE</button>
+                <button class="tab-btn" onclick="filterMenu('matcha')">MATCHA</button>
+            </div>
+
+            <!-- MENU CONTAINER -->
+            <div class="menu-grid">
+
+                <!-- COFFEE SERIES -->
+                <div class="section-header category-group coffee-group">
+                    <h2>Coffee Series</h2>
+                    <div class="line"></div>
+                </div>
+
+                <!-- 1. Americano -->
+                <div class="menu-card scroll-reveal category-group coffee-group">
+                    <div class="item-img-frame">
+                        <img src="americano.jpg" alt="Americano">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">Americano</div>
+                        <div class="item-desc">A refined extraction of double-shot espresso, yielding a bold yet incredibly smooth body with deep aromatic undertones. Crafted for true coffee purists.</div>
+                        <div class="item-craft"><b>Crafted with:</b> 100% Specialty Beans by SOL Coffee Roastery & Purified Filtered Water.</div>
+                        <div class="item-strength">Strength: <span class="strength-dots">●●●●○</span> (Bold)</div>
+                    </div>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="temp-badge temp-hot">HOT</span>
+                            <span class="price-val">RM 6.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="temp-badge temp-cold">COLD</span>
+                            <span class="price-val">RM 7.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Coffee Latte -->
+                <div class="menu-card scroll-reveal category-group coffee-group">
+                    <div class="item-img-frame">
+                        <img src="coffeelatte.jpeg" alt="Caffè Latte">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">Caffè Latte</div>
+                        <div class="item-desc">A harmonious blend of rich espresso gently folded into velvety micro-foamed milk, delivering a silky texture and a perfectly balanced, creamy finish.</div>
+                        <div class="item-craft"><b>Crafted with:</b> SOL Coffee Roastery Beans & Yarra Master Barista Milk.</div>
+                        <div class="item-strength">Strength: <span class="strength-dots">●●●○○</span> (Balanced)</div>
+                    </div>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="temp-badge temp-hot">HOT</span>
+                            <span class="price-val">RM 7.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="temp-badge temp-cold">COLD</span>
+                            <span class="price-val">RM 8.00</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 4. Spanish Latte -->
+                <div class="menu-card scroll-reveal category-group coffee-group">
+                    <div class="item-img-frame">
+                        <img src="spanishlattee.jpg" alt="Spanish Latte">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">Spanish Latte</div>
+                        <div class="item-desc">A rich and creamy delicacy featuring full-bodied espresso harmoniously blended with silky textured milk and a sweet, velvety condensed milk base.</div>
+                        <div class="item-craft"><b>Crafted with:</b> SOL Coffee Roastery Beans, Yarra Master Barista Milk & Premium Condensed Milk.</div>
+                        <div class="item-strength">Strength: <span class="strength-dots">●●●○○</span> (Rich & Creamy)</div>
+                    </div>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="temp-badge temp-hot">HOT</span>
+                            <span class="price-val">RM 7.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="temp-badge temp-cold">COLD</span>
+                            <span class="price-val">RM 8.00</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- MATCHA SERIES -->
+                <div class="section-header category-group matcha-group">
+                    <h2>Matcha Series</h2>
+                    <div class="line"></div>
+                </div>
+
+                <!-- 1. Matcha Latte -->
+                <div class="menu-card scroll-reveal category-group matcha-group">
+                    <div class="item-img-frame">
+                        <img src="matchalatte.jpg" alt="Matcha Latte">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">Matcha Latte</div>
+                        <div class="item-desc">An authentic ceremonial-grade green tea experience, traditional whisked to perfection and combined with silky steamed milk for a rich, earthy profile.</div>
+                        <div class="item-craft"><b>Crafted with:</b> Premium Matchabaik Powder & Yarra Master Barista Milk.</div>
+                        <div class="item-strength">Strength: <span class="strength-dots">●●●○○</span> (Earthy & Balanced)</div>
+                    </div>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="temp-badge temp-hot">HOT</span>
+                            <span class="price-val">RM 7.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="temp-badge temp-cold">COLD</span>
+                            <span class="price-val">RM 8.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Strawberry Matcha -->
+                <div class="menu-card scroll-reveal category-group matcha-group">
+                    <div class="item-img-frame">
+                        <img src="matchastraw.jpeg" alt="Strawberry Matcha">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">Strawberry Matcha</div>
+                        <div class="item-desc">A vibrant, multi-layered creation merging rich, earthy matcha with lush sweet strawberry puree and velvety milk. A refined balance of flavors.</div>
+                        <div class="item-craft"><b>Crafted with:</b> Matchabaik Powder, MONIN Strawberry Puree & Yarra Master Barista Milk.</div>
+                        <div class="item-strength">Strength: <span class="strength-dots">●●○○○</span> (Fruity & Mild)</div>
+                    </div>
+                    <div class="price-container">
+                        <div class="price-row">
+                            <span class="temp-badge temp-hot">HOT</span>
+                            <span class="price-val">RM 8.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="temp-badge temp-cold">COLD</span>
+                            <span class="price-val">RM 9.00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 CHA&BREW. ALL RIGHTS RESERVED.
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT FOR ANIMATIONS & TAB FILTERING -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = { threshold: 0.1 };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            scrollElements.forEach(el => observer.observe(el));
+        });
+
+        function filterMenu(type) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const coffeeElements = document.querySelectorAll('.coffee-group');
+            const matchaElements = document.querySelectorAll('.matcha-group');
+
+            if (type === 'all') {
+                coffeeElements.forEach(el => el.style.display = 'flex');
+                matchaElements.forEach(el => el.style.display = 'flex');
+            } else if (type === 'coffee') {
+                coffeeElements.forEach(el => el.style.display = 'flex');
+                matchaElements.forEach(el => el.style.display = 'none');
+            } else if (type === 'matcha') {
+                coffeeElements.forEach(el => el.style.display = 'none');
+                matchaElements.forEach(el => el.style.display = 'flex');
+            }
+        }
+    </script>
+
+</body>
+</html>
